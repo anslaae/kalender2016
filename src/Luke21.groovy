@@ -10,15 +10,19 @@ t.eachLine {
 }
 
 traverse(triangleA)
-println "A"+triangleA[0][0]
 
 triangleB = rotate(triangleB)
 traverse(triangleB)
-println "B"+triangleB[0][0]
 
 triangleC = rotate(rotate(triangleC))
 traverse(triangleC)
-println "C"+triangleC[0][0]
+
+if(triangleA[0][0].toInteger() > triangleB[0][0].toInteger() && triangleA[0][0].toInteger() > triangleC[0][0].toInteger())
+    println "A"+triangleA[0][0]
+else  if(triangleB[0][0].toInteger() > triangleA[0][0].toInteger() && triangleB[0][0].toInteger() > triangleC[0][0].toInteger())
+    println "B"+triangleB[0][0]
+else if(triangleC[0][0].toInteger() > triangleB[0][0].toInteger() && triangleC[0][0].toInteger() > triangleA[0][0].toInteger())
+    println "C"+triangleC[0][0]
 
 def traverse(tr){
     (tr.size()-2..0).each{ r ->
